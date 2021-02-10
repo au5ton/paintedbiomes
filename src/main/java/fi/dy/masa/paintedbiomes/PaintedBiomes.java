@@ -21,7 +21,7 @@ public class PaintedBiomes
     public static PaintedBiomes instance;
 
     // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger logger = LogManager.getLogger();
 
     public PaintedBiomes()
     {
@@ -52,7 +52,7 @@ public class PaintedBiomes
     }
 
     @SubscribeEvent
-    private void serverAboutToStart(FMLServerAboutToStartEvent event)
+    public void serverAboutToStart(FMLServerAboutToStartEvent event)
     {
         // (Re-)Load the config when the server is about to start.
         // This means that in single player you can just save and exit to main menu,
