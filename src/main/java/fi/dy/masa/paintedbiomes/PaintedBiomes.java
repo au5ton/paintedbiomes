@@ -4,6 +4,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.event.server.FMLServerAboutToStartEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
@@ -39,12 +40,9 @@ public class PaintedBiomes
     {
         // TODO: create "Configs" class
         // Configs.setConfigDir(FMLPaths.CONFIGDIR.get());
-
-        // Mimics FMLPostInitializationEvent
-        event.enqueueWork(this::loadLater);
     }
 
-    private void loadLater()
+    public void onLoadComplete(FMLLoadCompleteEvent event)
     {
         // Loads configs, so that the file and the options exist without loading into a world once first
         // TODO: create "Configs" class
